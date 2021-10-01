@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">RASE</string>
+    <string name="login">Login</string>
+    <string name="log_back_in">Log into your Account</string>
+    <string name="Email">Email Adress</string>
+    <string name="password">Password</string>
+    <string name="forgotpassword">Forgot Password</string>
+    <string name="createone">Create Account</string>
 </resources>
