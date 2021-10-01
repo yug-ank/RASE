@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "822273769134",
+    "project_id": "rase-ba33b",
+    "storage_bucket": "rase-ba33b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:822273769134:android:7fd603658039dad160b73f",
+        "android_client_info": {
+          "package_name": "com.college.rase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "822273769134-qmc3u6ro1p9eglbasfvarcontc7dqerk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.college.rase",
+            "certificate_hash": "ca947381a5a3b8d48caf6b2ae08b1cd34d7ce322"
+          }
+        },
+        {
+          "client_id": "822273769134-je64l33p7vuovkk733oaut0l3mkg31a2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFDY5Fz8Wjs6Xh3Adb_vdw_y962MBHfCY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "822273769134-je64l33p7vuovkk733oaut0l3mkg31a2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
