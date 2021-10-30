@@ -119,8 +119,8 @@ public class Profile extends AppCompatActivity {
                                     Intent intent=new Intent(Profile.this , LoginPage.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
                                             Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                    startActivity(intent);
-                                    finish();
+                                    //startActivity(intent);
+                                    //finish();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                         @Override
