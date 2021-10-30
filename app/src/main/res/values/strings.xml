@@ -6,4 +6,5 @@
     <string name="password">Password</string>
     <string name="forgotpassword">Forgot Password</string>
     <string name="createone">Create Account</string>
+    <string name="signUp">Sign Up</string>
 </resources>
