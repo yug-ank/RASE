@@ -9,6 +9,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.EditText;
@@ -92,10 +93,10 @@ public class Profile extends AppCompatActivity {
             editProfileImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    CropImage.activity().setAllowRotation(true).setAllowFlipping(true)
-                            .setAspectRatio(1 , 1).setFixAspectRatio(true)
-                            .setRequestedSize(300 , 300).setCropShape(CropImageView.CropShape.OVAL)
-                            .start(Profile.this);
+                        CropImage.activity().setAllowRotation(true).setAllowFlipping(true)
+                                .setAspectRatio(1 , 1).setFixAspectRatio(true)
+                                .setRequestedSize(300 , 300).setCropShape(CropImageView.CropShape.OVAL)
+                                .start(Profile.this);
                 }
             });
             String error="";
