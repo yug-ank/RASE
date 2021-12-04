@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.RASE">
-        <activity android:name=".AboutUs"></activity>
+        <activity
+            android:name=".StudentDetail"
+            android:exported="false" />
+        <activity android:name=".AboutUs" />
         <activity android:name=".Feedback" />
         <activity android:name=".Chat" />
         <activity android:name=".Search" />
@@ -28,7 +31,8 @@
             android:name=".Profile"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".SignUpPage" />
-        <activity android:name=".LoginPage" />
+        <activity android:name=".LoginPage">
+        </activity>
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />

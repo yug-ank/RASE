@@ -77,6 +77,7 @@ public class Profile extends AppCompatActivity {
         currentCompany=findViewById(R.id.currentCompany);
         currentPosition=findViewById(R.id.currentPosition);
         collegeId=findViewById(R.id.collegeId);
+        user=FirebaseAuth.getInstance().getCurrentUser();
         storageReference= FirebaseStorage.getInstance().getReference("profilePictures");
         db=FirebaseFirestore.getInstance();
         if(getIntent().getStringExtra("from").toString().equals("signUp")){
@@ -90,7 +91,7 @@ public class Profile extends AppCompatActivity {
             currentPosition.setEnabled(true);
             collegeId.setEnabled(true);
             saveProfile.setVisibility(View.VISIBLE);
-            editProfileImage.setOnClickListener(new View.OnClickListener() {
+            /*editProfileImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                         CropImage.activity().setAllowRotation(true).setAllowFlipping(true)
@@ -98,20 +99,20 @@ public class Profile extends AppCompatActivity {
                                 .setRequestedSize(300 , 300).setCropShape(CropImageView.CropShape.OVAL)
                                 .start(Profile.this);
                 }
-            });
+            });*/
             String error="";
             saveProfile.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     data.put("name" , name.getText().toString().trim());
-                    data.put("number" , number.getText());
-                    data.put("yop" , yop.getText());
+                    data.put("number" , number.getText().toString());
+                    data.put("yop" , yop.getText().toString());
                     data.put("branch" , branch.getText().toString());
                     data.put("currentCompany" , currentCompany.getText().toString());
                     data.put("currentPosition" ,currentPosition.getText().toString());
                     data.put("collegeId" , collegeId.getText().toString());
                     data.put("verified" , false);
-                    db.collection("Students").document(user.getEmail().toString()).update(data)
+                    db.collection("Students").document(user.getEmail().toString()).set(data)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
@@ -120,8 +121,8 @@ public class Profile extends AppCompatActivity {
                                     Intent intent=new Intent(Profile.this , LoginPage.class);
                                     intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |
                                             Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                    //startActivity(intent);
-                                    //finish();
+                                    startActivity(intent);
+                                    finish();
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                         @Override
