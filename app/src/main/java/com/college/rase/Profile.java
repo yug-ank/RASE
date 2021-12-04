@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -23,7 +24,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -40,7 +44,7 @@ import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 
-public class Profile extends AppCompatActivity {
+public class Profile extends Activity {
 
     private CircleImageView profileImage;
     private FloatingActionButton editProfileImage;
@@ -132,8 +136,59 @@ public class Profile extends AppCompatActivity {
                     });
                 }
             });
-        }else{
+        }else if(getIntent().getStringExtra("from").toString().equals("Homepage")){
+            db.collection("Students").document(user.getEmail()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if(value.exists()){
+                        if(value.get("profilePicture").toString().length()>0)
+                            Picasso.get().load(value.get("profilePicture").toString()).noFade().fit().into(profileImage);
+                        name.setText(value.get("name").toString());
+                        email.setText(user.getEmail().toString());
+                        number.setText(value.get("number").toString());
+                        yop.setText(value.get("yop").toString());
+                        branch.setText(value.get("branch").toString());
+                        currentCompany.setText(value.get("currentCompany").toString());
+                        currentPosition.setText(value.get("currentPosition").toString());
+                        collegeId.setText(value.get("collegeId").toString());
+                    }
+                }
+            });
+            editProfile.setVisibility(View.VISIBLE);
+            editProfile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    currentCompany.setEnabled(true);
+                    currentPosition.setEnabled(true);
+                    editProfile.setVisibility(View.GONE);
+                    saveProfile.setVisibility(View.VISIBLE);
 
+                }
+            });
+            saveProfile.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    data.put("currentCompany" , currentCompany.getText().toString());
+                    data.put("currentPosition" , currentPosition.getText().toString());
+                    db.collection("Students").document(user.getEmail()).update(data)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                        Toast.makeText(Profile.this , "Profile updated successfully" , Toast.LENGTH_SHORT).show();
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(Profile.this , ""+e , Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    editProfile.setVisibility(View.VISIBLE);
+                    saveProfile.setVisibility(View.GONE);
+                    currentCompany.setEnabled(false);
+                    currentPosition.setEnabled(false);
+
+                }
+            });
         }
     }
 
