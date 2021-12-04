@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -61,6 +62,7 @@ public class Profile extends Activity {
     private FirebaseAuth mauth;
     private FirebaseUser user;
     private FirebaseFirestore db;
+    Button Logout;
     String emailregex = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     Pattern emailPattern = Pattern.compile(emailregex);
     HashMap<String , Object> data=new HashMap<>();
@@ -69,6 +71,7 @@ public class Profile extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        Logout=findViewById(R.id.LogOut);
         profileImage=findViewById(R.id.profileImage);
         editProfileImage=findViewById(R.id.editProfileImage);
         saveProfile=findViewById(R.id.saveProfile);
@@ -187,6 +190,17 @@ public class Profile extends Activity {
                     currentCompany.setEnabled(false);
                     currentPosition.setEnabled(false);
 
+                }
+            });
+            Logout.setVisibility(View.VISIBLE);
+            Logout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    FirebaseAuth.getInstance().signOut();
+                    Intent intent=new Intent(Profile.this , LoginPage.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                    startActivity(intent);
+                    finish();
                 }
             });
         }

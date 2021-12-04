@@ -320,7 +320,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/editProfile"
+        android:id="@+id/chat"
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -334,7 +334,7 @@
         android:src="@drawable/ic_edit"
         />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/saveProfile"
+        android:id="@+id/verify"
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

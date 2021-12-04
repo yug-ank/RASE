@@ -29,6 +29,7 @@ public class LoginPage extends Activity {
     private TextView forgotPassoword;
     private Button login;
     private  TextView createOne;
+    FirebaseUser user;
     FirebaseAuth mauth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,12 @@ public class LoginPage extends Activity {
         forgotPassoword= findViewById(R.id.forgotPassword);
         login=findViewById(R.id.loginButton);
         createOne=findViewById(R.id.createOne);
+        user=FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            Intent intent = new Intent(LoginPage.this, Homepage.class);
+            startActivity(intent);
+            finish();
+        }
         mauth=FirebaseAuth.getInstance();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +70,14 @@ public class LoginPage extends Activity {
             @Override
             public void onClick(View view) {
                     Intent intent=new Intent(LoginPage.this , SignUpPage.class);
+                    startActivity(intent);
+            }
+        });
+
+        forgotPassoword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Intent intent=new Intent(LoginPage.this , ResetPassword.class);
                     startActivity(intent);
             }
         });

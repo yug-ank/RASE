@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RASE">
         <activity
+            android:name=".ResetPassword"
+            android:exported="false" />
+        <activity
             android:name=".StudentDetail"
             android:exported="false" />
         <activity android:name=".AboutUs" />
@@ -21,17 +24,18 @@
         <activity android:name=".Chat" />
         <activity android:name=".Search" />
         <activity android:name=".Homepage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Profile"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".SignUpPage" />
         <activity android:name=".LoginPage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
