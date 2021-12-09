@@ -7,4 +7,10 @@
         <item name="colorAccent">@color/colorAccent</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.RASE.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.RASE.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.RASE.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

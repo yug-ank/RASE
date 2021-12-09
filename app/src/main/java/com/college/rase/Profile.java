@@ -9,6 +9,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.EditText;
@@ -76,8 +77,11 @@ public class Profile extends AppCompatActivity {
         currentCompany=findViewById(R.id.currentCompany);
         currentPosition=findViewById(R.id.currentPosition);
         collegeId=findViewById(R.id.collegeId);
+
         storageReference= FirebaseStorage.getInstance().getReference("profilePictures");
         db=FirebaseFirestore.getInstance();
+        user=FirebaseAuth.getInstance().getCurrentUser();
+
         if(getIntent().getStringExtra("from").toString().equals("signUp")){
             editProfileImage.setVisibility(View.VISIBLE);
             name.setEnabled(true);
@@ -110,6 +114,8 @@ public class Profile extends AppCompatActivity {
                     data.put("currentPosition" ,currentPosition.getText().toString());
                     data.put("collegeId" , collegeId.getText().toString());
                     data.put("verified" , false);
+                    Log.i("Profile :", "working till 1 ");
+
                     db.collection("Students").document(user.getEmail().toString()).update(data)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override

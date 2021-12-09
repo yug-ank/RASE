@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activityChatCard_cardView"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:backgroundTint="#f6f6f6">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/activityChatCard_constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".chatCardView">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/activityChatCard_profilePicture"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_male_avatr"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.6"
+            app:layout_constraintWidth_percent="0.14"/>
+
+        <TextView
+            android:id="@+id/activityChatCard_name"
+            android:layout_width='0dp'
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:hint="NAME"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/activityChatCard_profilePicture"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintHeight_percent="0.3"
+            app:layout_constraintWidth_percent="0.2"
+            />
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:hint="most rescent message"
+            android:textColor="@color/secondary"
+            android:textSize="13dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/activityChatCard_profilePicture"
+            app:layout_constraintTop_toBottomOf="@+id/activityChatCard_name"
+            app:layout_constraintVertical_bias="0.324"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintHeight_percent="0.25"
+            app:layout_constraintWidth_percent="0.5"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
