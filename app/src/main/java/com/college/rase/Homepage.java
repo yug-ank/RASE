@@ -134,7 +134,6 @@ public class Homepage extends Activity {
                     }
                 }
             });
-
             recyclerView.setLayoutManager(new GridLayoutManager(Homepage.this, 2));
             recyclerView.setHasFixedSize(false);
             final PagedList.Config config = new PagedList.Config.Builder()
@@ -157,7 +156,16 @@ public class Homepage extends Activity {
             HomaPageRecyclerAdapter adapter = new HomaPageRecyclerAdapter(options);
             adapter.setContext(Homepage.this);
             adapter.startListening();
-            recyclerView.setAdapter(adapter);
+            db.collection("Students").document(user.getEmail()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                    if (value.exists()) {
+                        if (value.get("verified").toString().equals("true")) {
+                            recyclerView.setAdapter(adapter);
+                        }
+                    }
+                }
+            });
         }
     }
 }
