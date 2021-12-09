@@ -17,10 +17,10 @@
             android:name=".personalMessage"
             android:exported="true" />
         <activity android:name=".ChatPersonal" />
-        <activity android:name=".ChatAll" />
+        <activity android:name=".chatAll" />
         <activity android:name=".Profile" />
         <activity android:name=".SignUpPage" />
-        <activity android:name=".LoginPage">
+        <activity android:name=".LoginPage"/>
         <activity
             android:name=".StudentDetail"
             android:exported="false" />
