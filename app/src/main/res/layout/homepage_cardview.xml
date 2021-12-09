@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    android:backgroundTint="#ffffff"
+    >
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="8dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:layout_gravity="center">
+            <ImageView
+                android:id="@+id/studentImage"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:elevation="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="Student Profile"
+                android:scaleType="fitCenter"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintHeight_percent=".6" />
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:src="@drawable/dotted_line"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@+id/studentImage"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/studentName"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Name"
+                android:layout_marginStart="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="14dp"
+                android:textColor="	#000000"
+                app:layout_constraintTop_toBottomOf="@+id/img1"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent=".11"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/studentYear"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Year"
+                android:layout_marginStart="5dp"
+                android:textColor="#FFD700"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/studentName"
+                tools:ignore="SmallSp"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent=".1"
+                android:gravity="center"/>
+            <TextView
+                android:id="@+id/studentCurrentCompany"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Current Company"
+                android:layout_marginStart="5dp"
+                android:textColor="#FFD700"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/studentYear"
+                tools:ignore="SmallSp"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent=".1"
+                android:gravity="center"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/likebuttonholder"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent=".15"
+                app:layout_constraintHeight_percent=".15"
+                >
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.cardview.widget.CardView>
