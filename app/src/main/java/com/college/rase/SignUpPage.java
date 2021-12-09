@@ -46,7 +46,6 @@ public class SignUpPage extends Activity {
                                             if(task.isSuccessful()){
                                                 Intent intent=new Intent(SignUpPage.this , Profile.class);
                                                 intent.putExtra("from" , "signUp");
-                                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
                                                 startActivity(intent);
                                                 finish();
                                             }

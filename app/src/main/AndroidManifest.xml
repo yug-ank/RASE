@@ -28,7 +28,8 @@
         </activity>
         <activity
             android:name=".Profile"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan" >
+        </activity>
         <activity android:name=".SignUpPage" />
         <activity android:name=".LoginPage">
             <intent-filter>
@@ -36,6 +37,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"

@@ -70,6 +70,7 @@ public class LoginPage extends Activity {
             @Override
             public void onClick(View view) {
                     Intent intent=new Intent(LoginPage.this , SignUpPage.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
                     startActivity(intent);
             }
         });
@@ -85,13 +86,9 @@ public class LoginPage extends Activity {
 
     void checkIfEmailVerified(){
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-        //if(user.isEmailVerified()){
             Toast.makeText(LoginPage.this , "Welcome to RASE" , Toast.LENGTH_LONG).show();
             Intent intent=new Intent(LoginPage.this , Homepage.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
             startActivity(intent);
-        /*}else{
-            Toast.makeText(LoginPage.this , "Your profile is under verification" , Toast.LENGTH_LONG).show();
-        }*/
     }
 }

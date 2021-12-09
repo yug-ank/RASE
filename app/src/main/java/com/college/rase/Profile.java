@@ -66,7 +66,7 @@ public class Profile extends Activity {
     Button Logout;
     String emailregex = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
     Pattern emailPattern = Pattern.compile(emailregex);
-    HashMap<String , Object> data=new HashMap<>();
+    final HashMap<String , Object> data=new HashMap<>();
     private  StorageReference storageReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -209,10 +209,10 @@ public class Profile extends Activity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent intentData) {
+        super.onActivityResult(requestCode, resultCode, intentData);
         if(requestCode==CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE && resultCode==RESULT_OK){
-                CropImage.ActivityResult result=CropImage.getActivityResult(data);
+                CropImage.ActivityResult result=CropImage.getActivityResult(intentData);
                 if(resultCode==CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
                     Toast.makeText(Profile.this , ""+result.getError() , Toast.LENGTH_SHORT).show();
                 }else{
@@ -220,8 +220,7 @@ public class Profile extends Activity {
                     Picasso.get().load(imageUri).into(profileImage);
                     user=FirebaseAuth.getInstance().getCurrentUser();
                     String name=""+user.getEmail()+getExtension(imageUri);
-                   // String name = "yugank";
-                    StorageReference imgRef = storageReference.child("yugank");
+                    StorageReference imgRef = storageReference.child(name);
                     UploadTask uploadTask = imgRef.putFile(imageUri);
                     uploadTask.continueWithTask(task -> {
                         if (!task.isSuccessful()) {
@@ -232,6 +231,7 @@ public class Profile extends Activity {
                         @Override
                         public void onComplete(@NonNull @NotNull Task<Uri> task) {
                             if (task.isSuccessful()) {
+                                data.put("profilePicture" , task.getResult().toString());
                                 Picasso.get().load(task.getResult().toString()).noFade().fit().into(profileImage,
                                         new Callback() {
                                             @Override
