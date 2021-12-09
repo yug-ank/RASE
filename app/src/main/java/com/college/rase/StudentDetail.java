@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,7 +26,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 
-public class StudentDetail extends AppCompatActivity {
+public class StudentDetail extends Activity {
     private CircleImageView profileImage;
     private EditText name;
     private EditText email;

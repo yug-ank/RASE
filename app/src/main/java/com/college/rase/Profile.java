@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -85,7 +86,7 @@ public class Profile extends Activity {
         currentPosition=findViewById(R.id.currentPosition);
         collegeId=findViewById(R.id.collegeId);
         user=FirebaseAuth.getInstance().getCurrentUser();
-        storageReference= FirebaseStorage.getInstance().getReference("profilePictures");
+        storageReference= FirebaseStorage.getInstance().getReference("profile");
         db=FirebaseFirestore.getInstance();
         if(getIntent().getStringExtra("from").toString().equals("signUp")){
             editProfileImage.setVisibility(View.VISIBLE);
@@ -98,7 +99,8 @@ public class Profile extends Activity {
             currentPosition.setEnabled(true);
             collegeId.setEnabled(true);
             saveProfile.setVisibility(View.VISIBLE);
-            /*editProfileImage.setOnClickListener(new View.OnClickListener() {
+            editProfileImage.setVisibility(View.VISIBLE);
+            editProfileImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                         CropImage.activity().setAllowRotation(true).setAllowFlipping(true)
@@ -106,7 +108,7 @@ public class Profile extends Activity {
                                 .setRequestedSize(300 , 300).setCropShape(CropImageView.CropShape.OVAL)
                                 .start(Profile.this);
                 }
-            });*/
+            });
             String error="";
             saveProfile.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -214,20 +216,22 @@ public class Profile extends Activity {
                 if(resultCode==CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
                     Toast.makeText(Profile.this , ""+result.getError() , Toast.LENGTH_SHORT).show();
                 }else{
-                    Uri imageUri=result.getUri();
+                    Uri imageUri = result.getUri();
+                    Picasso.get().load(imageUri).into(profileImage);
                     user=FirebaseAuth.getInstance().getCurrentUser();
                     String name=""+user.getEmail()+getExtension(imageUri);
-                    StorageReference imgRef=storageReference.child(name);
-                    UploadTask uploadTask=imgRef.putFile(imageUri);
+                   // String name = "yugank";
+                    StorageReference imgRef = storageReference.child("yugank");
+                    UploadTask uploadTask = imgRef.putFile(imageUri);
                     uploadTask.continueWithTask(task -> {
-                         if(!task.isSuccessful()){
-                                throw task.getException();
-                         }
-                         return imgRef.getDownloadUrl();
+                        if (!task.isSuccessful()) {
+                            throw task.getException();
+                        }
+                        return imgRef.getDownloadUrl();
                     }).addOnCompleteListener(new OnCompleteListener<Uri>() {
                         @Override
                         public void onComplete(@NonNull @NotNull Task<Uri> task) {
-                            if(task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 Picasso.get().load(task.getResult().toString()).noFade().fit().into(profileImage,
                                         new Callback() {
                                             @Override
@@ -237,7 +241,7 @@ public class Profile extends Activity {
 
                                             @Override
                                             public void onError(Exception e) {
-                                                    Toast.makeText(Profile.this ,""+e , Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(Profile.this, "" + e, Toast.LENGTH_SHORT).show();
                                             }
                                         });
                             }
