@@ -15,17 +15,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.5"
-            android:text="search"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImage"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="15dp"
@@ -35,6 +27,30 @@
             app:layout_constraintWidth_default="percent"
             app:layout_constraintWidth_percent="0.1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        android:hint="search by company name"
+        android:drawableLeft="@drawable/ic_search_24"
+        android:padding="10dp"
+        android:background="@drawable/edittextbackground"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchPageView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.73"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search" />
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/materialToolbar"
         android:layout_width="match_parent"

@@ -15,17 +15,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.5"
-            android:text="feedback"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImage"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="15dp"
@@ -35,6 +27,41 @@
             app:layout_constraintWidth_default="percent"
             app:layout_constraintWidth_percent="0.1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/feedbackform"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.9"
+        android:hint="Enter Your feedback here"
+        android:layout_marginTop="80dp"
+        android:gravity="top|left"
+        android:background="@drawable/edittextbackground"
+        android:padding="10dp"/>
+
+    <Button
+        android:id="@+id/submitFeedback"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feedbackform"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0.4"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/buttonbackground"
+        android:text="Submit"
+        android:textSize="20dp"
+        android:fontFamily="@font/averia_libre_bold"
+        android:textColor="@color/colorPrimary"/>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/materialToolbar"
         android:layout_width="match_parent"

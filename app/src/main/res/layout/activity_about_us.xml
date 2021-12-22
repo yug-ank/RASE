@@ -15,17 +15,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent="0.5"
-            android:text="about"/>
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImage"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginRight="15dp"
@@ -36,6 +28,18 @@
             app:layout_constraintWidth_percent="0.1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <TextView
+        android:id="@+id/aboutUsText"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.82"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        android:gravity="center"
+        android:autoSizeTextType="uniform"
+        android:fontFamily="@font/montserrat_bold"/>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/materialToolbar"
         android:layout_width="match_parent"

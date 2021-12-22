@@ -28,12 +28,20 @@
       <map>
         <entry key="..\:/andriod/RASE/app/src/main/res/drawable/buttonbackground.xml" value="0.21666666666666667" />
         <entry key="..\:/andriod/RASE/app/src/main/res/drawable/dotted_line.xml" value="0.21666666666666667" />
+        <entry key="..\:/andriod/RASE/app/src/main/res/drawable/ic_verified.xml" value="0.26614583333333336" />
+        <entry key="..\:/andriod/RASE/app/src/main/res/drawable/verified.xml" value="0.26614583333333336" />
+        <entry key="..\:/andriod/RASE/app/src/main/res/layout/activity_about_us.xml" value="0.1712962962962963" />
+        <entry key="..\:/andriod/RASE/app/src/main/res/layout/activity_chat.xml" value="0.1712962962962963" />
+        <entry key="..\:/andriod/RASE/app/src/main/res/layout/activity_feedback.xml" value="0.1712962962962963" />
         <entry key="..\:/andriod/RASE/app/src/main/res/layout/activity_homepage.xml" value="0.17407407407407408" />
         <entry key="..\:/andriod/RASE/app/src/main/res/layout/activity_login_page.xml" value="0.17407407407407408" />
-        <entry key="..\:/andriod/RASE/app/src/main/res/layout/activity_profile.xml" value="0.12760416666666666" />
+        <entry key="..\:/andriod/RASE/app/src/main/res/layout/activity_profile.xml" value="0.2" />
+        <entry key="..\:/andriod/RASE/app/src/main/res/layout/activity_reset_password.xml" value="0.12760416666666666" />
+        <entry key="..\:/andriod/RASE/app/src/main/res/layout/activity_search.xml" value="0.1712962962962963" />
         <entry key="..\:/andriod/RASE/app/src/main/res/layout/activity_sign_up_page.xml" value="0.17407407407407408" />
         <entry key="..\:/andriod/RASE/app/src/main/res/layout/activity_student_detail.xml" value="0.12760416666666666" />
         <entry key="..\:/andriod/RASE/app/src/main/res/layout/homepage_cardview.xml" value="0.25" />
+        <entry key="..\:/andriod/RASE/app/src/main/res/menu/toolbartop.xml" value="0.12760416666666666" />
       </map>
     </option>
   </component>

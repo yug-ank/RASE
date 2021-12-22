@@ -3,6 +3,7 @@ package com.college.rase;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +19,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class LoginPage extends AppCompatActivity {
+public class LoginPage extends Activity {
 
 
     private EditText eMail;
@@ -28,6 +29,7 @@ public class LoginPage extends AppCompatActivity {
     private TextView forgotPassoword;
     private Button login;
     private  TextView createOne;
+    FirebaseUser user;
     FirebaseAuth mauth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,12 @@ public class LoginPage extends AppCompatActivity {
         forgotPassoword= findViewById(R.id.forgotPassword);
         login=findViewById(R.id.loginButton);
         createOne=findViewById(R.id.createOne);
+        user=FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            Intent intent = new Intent(LoginPage.this, Homepage.class);
+            startActivity(intent);
+            finish();
+        }
         mauth=FirebaseAuth.getInstance();
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +70,15 @@ public class LoginPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                     Intent intent=new Intent(LoginPage.this , SignUpPage.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
+                    startActivity(intent);
+            }
+        });
+
+        forgotPassoword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Intent intent=new Intent(LoginPage.this , ResetPassword.class);
                     startActivity(intent);
             }
         });
@@ -69,13 +86,9 @@ public class LoginPage extends AppCompatActivity {
 
     void checkIfEmailVerified(){
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-        //if(user.isEmailVerified()){
             Toast.makeText(LoginPage.this , "Welcome to RASE" , Toast.LENGTH_LONG).show();
             Intent intent=new Intent(LoginPage.this , Homepage.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NO_HISTORY);
             startActivity(intent);
-        /*}else{
-            Toast.makeText(LoginPage.this , "Your profile is under verification" , Toast.LENGTH_LONG).show();
-        }*/
     }
 }
