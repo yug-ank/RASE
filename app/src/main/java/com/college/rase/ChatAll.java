@@ -35,7 +35,7 @@ public class ChatAll extends AppCompatActivity {
     ImageView searchIcon;
     SearchView searchView;
     String TAG = "TAG";
-    public  chat_all_adapter adapter;
+    public chat_all_adapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i("TAG", "call1");
@@ -108,39 +108,39 @@ public class ChatAll extends AppCompatActivity {
 
     void getCHatList(){
         chatList = new ArrayList<>();
-//        DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+// DatabaseReference db = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getEmail());
         DatabaseReference db = FirebaseDatabase.getInstance("https://rase-ba33b-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference().child("users").child("yuganksharma012");
-        Map<String, Object> t1 = new HashMap<>();
-        t1.put("aaaaaa", "dfag@gma.com");
-//        db.setValue(t1);
+//        Map<String, Object> t1 = new HashMap<>();
+//        t1.put("aaaaaa", "dfag@gma.com");
+// db.setValue(t1);
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Log.i("TAG", "in listener"+snapshot.getKey());
-//                if(snapshot.exists()){
-                    Log.i("TAG", snapshot.getKey()+"before");
-                    for(DataSnapshot childrens : snapshot.getChildren()){
-                        String temp = childrens.getKey();
-                        Log.i("TAG", ""+temp);
-                        final userObject obj = new userObject( temp , childrens.getValue().toString());
+// if(snapshot.exists()){
+                Log.i("TAG", snapshot.getKey()+"before");
+                for(DataSnapshot childrens : snapshot.getChildren()){
+                    String temp = childrens.getKey();
+                    Log.i("TAG", ""+temp);
+                    final userObject obj = new userObject( temp , childrens.getValue().toString());
 
-                        FirebaseFirestore.getInstance().collection("Students").document(obj.getUserEmail()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
-                            @Override
-                            public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-                                if(value.exists()){
-                                    if(value.get("name") != null)
-                                        obj.setUserName(value.get("name").toString());
-                                    if(value.get("profilePicture") != null)
-                                        obj.setProfilePicture(value.get("profilePicture").toString());
-                                    chatList.add(obj);
-                                    Log.i(TAG, "onEvent: "+obj.getUserName());
-                                    adapter.notifyDataSetChanged();
-                                }
+                    FirebaseFirestore.getInstance().collection("Students").document(obj.getUserEmail()).addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                        @Override
+                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                            if(value.exists()){
+                                if(value.get("name") != null)
+                                    obj.setUserName(value.get("name").toString());
+                                if(value.get("profilePicture") != null)
+                                    obj.setProfilePicture(value.get("profilePicture").toString());
+                                chatList.add(obj);
+                                Log.i(TAG, "onEvent: "+obj.getUserName());
+                                adapter.notifyDataSetChanged();
                             }
-                        });
+                        }
+                    });
 
-                    }
-//                }
+                }
+// }
             }
 
             @Override
