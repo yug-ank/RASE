@@ -55,7 +55,7 @@ public class chat_all_adapter extends RecyclerView.Adapter<chat_all_adapter.view
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ChatPersonal.class);
+                Intent intent = new Intent(v.getContext(), personalMessage.class);
                 intent.putExtra("name", chatList.get(position).getUserName());
                 intent.putExtra("profilePicture", chatList.get(position).getProfilePicture());
                 intent.putExtra("chatroom", chatList.get(position).getChatroomId());

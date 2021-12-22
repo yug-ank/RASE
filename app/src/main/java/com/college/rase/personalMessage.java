@@ -68,10 +68,10 @@ public class personalMessage extends AppCompatActivity {
         layoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(layoutManager);
         primaryUser = FirebaseAuth.getInstance().getCurrentUser().getDisplayName();
-        secondaryUser = intent.getStringExtra("foundUser");
+        secondaryUser = intent.getStringExtra("name");
         chatId = intent.getStringExtra("chatroom");
 
-        databaseReference = FirebaseDatabase.getInstance().getReference()
+        databaseReference = FirebaseDatabase.getInstance("https://rase-ba33b-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference()
                 .child("chatroom")
                 .child(chatId);
         chat = new ArrayList<>();
