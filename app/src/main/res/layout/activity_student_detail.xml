@@ -16,7 +16,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/constraintLayout"
                 android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:layout_height="255dp"
                 android:layout_marginTop="80dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHeight_default="percent"
@@ -68,7 +68,7 @@
                 android:hint="Your Name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHeight_default="percent"
-                app:layout_constraintHeight_percent="0.08"
+                app:layout_constraintHeight_percent="0.04"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
                 app:layout_constraintWidth_default="percent"
@@ -80,7 +80,7 @@
                 android:layout_height="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHeight_default="percent"
-                app:layout_constraintHeight_percent="0.09"
+                app:layout_constraintHeight_percent="0.05"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name">
 
@@ -91,7 +91,7 @@
                     android:layout_height="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHeight_default="percent"
-                    app:layout_constraintHeight_percent="0.5"
+                    app:layout_constraintHeight_percent="0.7"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintWidth_default="percent"
@@ -121,7 +121,7 @@
                 android:layout_height="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHeight_default="percent"
-                app:layout_constraintHeight_percent="0.09"
+                app:layout_constraintHeight_percent="0.05"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/emailContainer">
 
@@ -132,7 +132,7 @@
                     android:layout_height="0dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHeight_default="percent"
-                    app:layout_constraintHeight_percent="0.5"
+                    app:layout_constraintHeight_percent="0.7"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintWidth_default="percent"
@@ -320,21 +320,22 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/editProfile"
+        android:id="@+id/chat"
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:fabSize="mini"
         android:backgroundTint="@color/colorPrimaryDark"
+        app:tint="@color/colorAccent"
         android:layout_gravity="end|bottom"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         android:focusable="true"
         android:clickable="true"
-        android:src="@drawable/ic_edit"
+        android:src="@drawable/ic_envelope_grey"
         />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/saveProfile"
+        android:id="@+id/verify"
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -346,5 +347,6 @@
         android:focusable="true"
         android:clickable="true"
         android:src="@drawable/ic_verified"
+        app:tint="@color/colorAccent"
         />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
