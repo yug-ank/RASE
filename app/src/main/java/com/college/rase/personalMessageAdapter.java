@@ -1,7 +1,6 @@
 package com.college.rase;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +39,7 @@ public class personalMessageAdapter extends RecyclerView.Adapter<personalMessage
         ConstraintLayout.LayoutParams params =
                 new ConstraintLayout.LayoutParams( ViewGroup.LayoutParams.MATCH_PARENT , ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        params.setMargins(15 , 10 , 15  , 0);
+        params.setMargins(15 , 10 , 15 , 0);
         view.setLayoutParams(params);
         return new viewHolder(view);
     }
@@ -48,7 +47,6 @@ public class personalMessageAdapter extends RecyclerView.Adapter<personalMessage
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         if( !chat.get(position).sender.equals(primaryUser) ){
-            Log.d("primary user", ""+primaryUser);
             holder.sendmsg.setVisibility(View.VISIBLE);
             holder.sendmsg.setText(chat.get(position).text);
         }

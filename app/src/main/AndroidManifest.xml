@@ -16,6 +16,7 @@
         <activity
             android:name=".ResetPassword"
             android:exported="false" />
+        <activity
             android:name=".personalMessage"
             android:exported="true" />
         <activity android:name=".ChatPersonal" />

@@ -1,5 +1,6 @@
 package com.college.rase;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -32,6 +33,7 @@ public class chat_all_adapter extends RecyclerView.Adapter<chat_all_adapter.view
         this.height = height;
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void filteredList(ArrayList<userObject> filterList){
         this.chatList = filterList;
         notifyDataSetChanged();
