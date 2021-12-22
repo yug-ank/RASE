@@ -46,7 +46,7 @@ public class personalMessageAdapter extends RecyclerView.Adapter<personalMessage
 
     @Override
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
-        if( !chat.get(position).sender.equals(primaryUser) ){
+        if( !chat.get(position).sender.equals("yugank") ){
             holder.sendmsg.setVisibility(View.VISIBLE);
             holder.sendmsg.setText(chat.get(position).text);
         }
