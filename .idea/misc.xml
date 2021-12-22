@@ -3,6 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/edit_text_box.xml" value="0.29635416666666664" />
+        <entry key="app/src/main/res/drawable/ic_chat_send.xml" value="0.29583333333333334" />
+        <entry key="app/src/main/res/drawable/ic_message_attach_file.xml" value="0.11574074074074074" />
+        <entry key="app/src/main/res/drawable/ic_message_personal_rectangle.xml" value="0.11574074074074074" />
+        <entry key="app/src/main/res/drawable/ic_message_send.xml" value="0.11574074074074074" />
+        <entry key="app/src/main/res/drawable/received_message.xml" value="0.11574074074074074" />
+        <entry key="app/src/main/res/drawable/sent_message.xml" value="0.11574074074074074" />
+        <entry key="app/src/main/res/layout/activity_chat_all.xml" value="0.2755208333333333" />
+        <entry key="app/src/main/res/layout/activity_chat_personal.xml" value="0.5509355509355509" />
+        <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.2760416666666667" />
+        <entry key="app/src/main/res/layout/activity_personal_message.xml" value="0.2760416666666667" />
+        <entry key="app/src/main/res/layout/activity_profile.xml" value="0.2760416666666667" />
+        <entry key="app/src/main/res/layout/activity_sign_up_page.xml" value="0.2760416666666667" />
+        <entry key="app/src/main/res/layout/card_view_chat_all.xml" value="0.4" />
+        <entry key="app/src/main/res/layout/content_home_page.xml" value="0.2760416666666667" />
+        <entry key="app/src/main/res/layout/text_view.xml" value="0.2760416666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
         <entry key="..\:/andriod/RASE/app/src/main/res/drawable/buttonbackground.xml" value="0.21666666666666667" />
         <entry key="..\:/andriod/RASE/app/src/main/res/drawable/dotted_line.xml" value="0.21666666666666667" />
         <entry key="..\:/andriod/RASE/app/src/main/res/drawable/ic_verified.xml" value="0.26614583333333336" />

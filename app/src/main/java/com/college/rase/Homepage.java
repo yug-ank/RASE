@@ -1,19 +1,16 @@
 package com.college.rase;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.paging.PagedList;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import de.hdodenhof.circleimageview.CircleImageView;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.paging.PagedList;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.SnapshotParser;
 import com.firebase.ui.firestore.paging.FirestorePagingOptions;
@@ -31,6 +28,8 @@ import com.squareup.picasso.Picasso;
 
 import org.jetbrains.annotations.NotNull;
 import org.w3c.dom.ProcessingInstruction;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class Homepage extends Activity {
     BottomNavigationView bottomNavigationView;

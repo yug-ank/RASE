@@ -16,6 +16,20 @@
         <activity
             android:name=".ResetPassword"
             android:exported="false" />
+            android:name=".personalMessage"
+            android:exported="true" />
+        <activity android:name=".ChatPersonal" />
+        <activity android:name=".chatAll" />
+        <activity android:name=".Profile" />
+        <activity android:name=".SignUpPage" />
+        <activity android:name=".LoginPage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity
             android:name=".StudentDetail"
             android:exported="false" />
@@ -24,19 +38,6 @@
         <activity android:name=".Chat" />
         <activity android:name=".Search" />
         <activity android:name=".Homepage">
-
-        </activity>
-        <activity
-            android:name=".Profile"
-            android:windowSoftInputMode="adjustPan" >
-        </activity>
-        <activity android:name=".SignUpPage" />
-        <activity android:name=".LoginPage">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity
